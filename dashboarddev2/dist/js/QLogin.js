@@ -22,7 +22,7 @@ function postlogin(url,data){
       data: data,
       success: function(token){ hypetoken = token['token'];}
     });
-    if(hypetoken.includes('init') < 1){ 
+    if(hypetoken.includes('init') < 1){
 
         if(hypetoken.includes('baduser') < 1){
             localStorage.setItem("token",hypetoken);
@@ -58,8 +58,8 @@ $("button").click(function(e){
     $("#pass").prop('disabled',true);
     $("#signin").hide();
     postlogin(urlapi, datapi);
-    
-    
+
+
 });
 
 
@@ -91,7 +91,5 @@ jQuery(function($){
     });
   });
   var bg = {'warning':{'class':'bg-warning', 'loc':'bottomLeft', 'delay':10000},
-     'error':{'class':'bg-danger', 'loc':'topRight', 'delay':10000}, 
+     'error':{'class':'bg-danger', 'loc':'topRight', 'delay':10000},
      'info':{'class':'bg-info','loc':'bottomRight', 'delay':4000},};
- 
-      
