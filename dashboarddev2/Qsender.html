@@ -20,6 +20,27 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="plugins/gfont/QuickStor.css">
 
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="dist/css/fonts/google-fonts.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Chartjs -->
+  <link rel="stylesheet" href="plugins/chart.js/Chart.min.css">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="plugins/gfont/QuickStor.css">
+  <link rel="stylesheet" href="dist/css/myQsender.css">
 </head>
 <!--
 `body` tag options:
@@ -315,6 +336,349 @@
     </div>
     <!-- /.content-header -->
 
+    <!-- Main content 2-->
+    <div class="content">
+      <div class="container-fluid">
+        <form>
+          <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary card-outline card-outline-tabs">
+                  <div class="card-header border-bottom-0">
+                      <div class="form-group row">
+                        <label  for="Pool2" class="col-1 col-form-label" >Pool</label>
+                        <select  class=" select2 form-control pool col-3" id="Pool2">
+                          <option></option>
+                        </select>
+                        <label  for="volname" class="offset-2 col-1  col-form-label">Volume</label>
+                        <select  class="select2 form-control volume col-3"  id="volname">
+                          <option></option>
+                        </select>
+                      </div>
+                    </div>
+                  <div class="card-body">
+                      <ul class="nav nav-tabs row" id="custom-tabs-four-tab" role="tablist">
+                      <li class="nav-item col-3">
+                        <a class="nav-link  active" id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-Once" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true">Once</a>
+                      </li>
+                      <li class="nav-item  col-3">
+                        <a class="nav-link " id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-Minutely" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false">Minutely</a>
+                      </li>
+                      <li class="nav-item  col-3">
+                        <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill" href="#custom-tabs-four-Hourly" role="tab" aria-controls="custom-tabs-four-messages" aria-selected="false">Hourly</a>
+                      </li>
+                      <li class="nav-item  col-3">
+                        <a class="nav-link" id="custom-tabs-four-settings-tab" data-toggle="pill" href="#custom-tabs-four-Weekly" role="tab" aria-controls="custom-tabs-four-settings" aria-selected="false">Weekly</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-four-tabContent"  >
+                      <div class="tab-pane fade show active" id="custom-tabs-four-Once" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                        <div class="form-group row" style="padding-bottom: 1rem; border-bottom: 1px solid #dee2e6;" >
+                          <label  for="Oncename" class="col-2 col-form-label" style="text-align: right;">Snapshot name</label>
+                          <input type="text" class="form-control col-3" disabled id="Oncename" >
+                        </div>
+                        <div class="form-group row">
+                          <div class=" offset-md-3 col-md-9" >
+                              <button type="submit" id="oncecreate" disabled class="form-control btn btn-primary col-md-6 ">Create Snapshot Now</button>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                              <h4 class="cardshead">Snapshots Created Manually</h4>
+                              <table id="Oncetable" class="table table-sm table-hover example1  table-striped">
+                                <thead style="background-color:#2939C6; color: white;">
+                                <tr class = ''>
+                                  <th style="">Date</th>
+                                  <th style="">Time</th>
+                                  <th style="">Name</th>
+
+                                  <th style="">Size(MB)</th>
+                                  <th style="">Compress%</th>
+                                  <th style="x">Rollback</th>
+                                  <th style=";">Remove Volume</th>
+                                </tr>
+                                </thead>
+                                <tbody style="font-size: 90%; color:#2939C6;">
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                              </table>
+                              <h4 class="cardshead">Snapshots Created Manually</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="custom-tabs-four-Minutely" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                        <div class="form-group row"  style="padding-bottom: 1rem; border-bottom: 1px solid #dee2e6;">
+                          <label  for="EveryMinutely" class="col-md-3 col-form-label"
+                              style="text-align: right; margin-right: 5px; margin-left:5px;">Every</label>
+                          <input type="number" min='1' max='59' step=1 value=10 class="form-control Minute col-md-1" disabled id="EveryMinutely" >
+                          <label  for="EveryMinutely" class="col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">minute, </label>
+                          <label  for="KeepMinutely" class=" col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">Keep</label>
+                          <input type="number" min='1' max='100' step=1 value=5 class="form-control Minute col-md-1" disabled id="KeepMinutely" >
+                          <label  for="KeepMinutely" class=" col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;" >Snapshots</label>
+                        </div>
+                        <div class=" form-group row"  >
+                          <div class=" offset-md-3 col-md-9" >
+                              <button type="submit" id="Minutelycreate" class="form-control Minute btn btn-primary col-md-6 " disabled>Create Snapshot Now</button>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <div class="card card-primary card-outline  card-outline-tab" style="padding: 5px;">
+                              <h4 class="cardshead">list of minutley periods</h4>
+                              <table id="Minutelyperiods" class="table table-sm  table-hover table-striped dataTable">
+                                <thead style="background-color:#2939C6; color: white;">
+                                <tr>
+                                  <th>SequenceID</th>
+                                  <th>Volume</th>
+                                  <th>Every(minutes)</th>
+                                  <th>Keep(snapshots)</th>
+                                  <th>delete</th>
+                                </tr>
+                                </thead>
+                                <tbody style="font-size: 90%; color:#2939C6;">
+                                </tbody>
+                                <tfoot >
+
+                                </tfoot>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                              <h4 class="cardshead">Snapshots Created Minutely</h4>
+                              <table id="Minutelytable" class="table table-sm table-hover example1  table-striped">
+                                <thead  style="background-color:#2939C6; color: white;">
+                                <tr>
+                                  <th style="width:14%;">date</th>
+                                  <th style="width:5%;">time</th>
+                                  <th style="width:15%;">name</th>
+                                  <th style="width:10%;">volume</th>
+                                  <th style="width:5%;">size(MB)</th>
+                                  <th style="width:5%;">compress%</th>
+                                  <th style="width:5%;"> Rollback</th>
+                                  <th style="width:5%;">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody style="font-size: 90%; color:#2939C6;">
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="tab-pane fade" id="custom-tabs-four-Hourly" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                        <div class="form-group row" style="padding-bottom: 1rem; border-bottom: 1px solid #dee2e6;">
+                          <label  for="Sminute" class=" col-md-3 col-form-label" style="text-align: right;">At the</label>
+                          <input type="number" min='0' max='59' step=1 value=0 class="form-control Hour col-md-1" disabled id="Sminute" >
+                          <label  for="Sminute" class="  col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;" ><sup>th</sup> minute, </label>
+                          <label  for="EveryHourly" class="  col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;" >  every</label>
+                          <input type="number" min='1' max='48' step=1 value=1 class="form-control Hour col-md-1" disabled id="EveryHourly" >
+                          <label  for="EveryHourly" class=" col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">hours,</label>
+                          <label  for="KeepHourly" class=" col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">Keep</label>
+                          <input type="number" min='1' max='100' step=1 value=1 class="form-control Hour col-md-1" disabled id="KeepHourly" >
+                          <label  for="KeepHourly" class=" col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">Snapshots</label>
+                        </div>
+                        <div class=" form-group row"  >
+                          <div class=" offset-md-3 col-md-9" >
+                              <button type="submit" id="Hourlycreate" class="form-control Hour btn btn-primary col-md-6 " disabled >Create Snapshot Period</button>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                              <h4 class="cardshead">list of hourly periods</h4>
+                              <table id="Hourlyperiods" class="table table-sm table-hover example1  table-striped dataTable">
+                                <thead style="background-color:#2939C6; color: white;">
+                                <tr>
+                                  <th>SequenceID</th>
+                                  <th>Volume</th>
+                                  <th>Every(hrs)</th>
+                                  <th>Snap at(minute)</th>
+                                  <th>keep(snapshots)</th>
+                                  <th>delete</th>
+                                </tr>
+                                </thead>
+                                <tbody  style="font-size: 90%; color:#2939C6;">
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-md-12">
+                            <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                              <h4 class="cardshead">Snapshots Created Hourly</h4>
+                              <table id="Hourlytable" class="table table-sm table-hover table-striped">
+                                <thead style="background-color:#2939C6; color: white;">
+
+                                  <th style="width:14%;">date</th>
+                                  <th style="width:5%;">time</th>
+                                  <th style="width:15%;">name</th>
+                                  <th style="width:10%;">volume</th>
+                                  <th style="width:5%;">size(MB)</th>
+                                  <th style="width:5%;">compress%</th>
+                                  <th style="width:5%;"> Rollback</th>
+                                  <th style="width:5%;">Delete</th>
+
+                                </thead>
+                                <tbody  style="font-size: 90%; color:#2939C6;">
+
+                                </tbody>
+                                <tfoot class="">
+
+                                </tfoot>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="custom-tabs-four-Weekly" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
+                            <div class="form-group row"  style="padding-bottom: 1rem; border-bottom: 1px solid #dee2e6;">
+                              <label class="col-md-3 col-form-label"
+                                  style="text-align: right; margin-right: 5px; margin-left:5px;">Snaptshot at</label>
+                              <div class="input-group date  col-md-2" id="timepicker" data-target-input="nearest">
+                                <input type="text" id="Stime" class="form-control Week datetimepicker-input" value="11:50 PM" disabled data-target="#timepicker"/>
+                                <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                </div>
+                              </div>
+                              <label class="col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">o'clock,</label>
+                              <label  for="Sday" class="col-form-label" style="text-align: right; margin-right: 5px; margin-left:5px;"> on</label>
+                              <select id="Sday" class="form-control Week col-md-2" disabled>
+    					                 <option value="Sat">Saturday</option><option value="Sun">Sunday</option><option value="Mon">Monday</option><option value="Tue">Tuesday</option><option value="Wed">Wednesday</option><option value="Thu">Thursday</option><option value="Fri">Friday</option>
+                              </select>
+                              <label  for="Sday" class="col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">.</label>
+
+                              <label  for="KeepWeekly" class="col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">Keep</label>
+                              <input type="number" min='1' max='100' step=1 value=1 class="form-control Week col-md-1" disabled id="KeepWeekly" >
+                              <label  for="KeepWeekly" class="col-form-label" style="text-align: center; margin-right: 5px; margin-left:5px;">Snapshots</label>
+                            </div>
+                            <div class=" form-group row"  >
+                              <div class=" offset-md-3 col-md-9" >
+                                  <button type="submit" id="Weeklycreate" class="form-control Week btn btn-primary col-md-6 " disabled>Create Snapshot Now</button>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-md-12">
+                                <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                                  <h4 class="cardshead">list of weekly periods</h4>
+                                  <table id="Weeklyperiods" class="table table-sm table-hover   table-striped dataTable">
+                                    <thead  style="background-color:#2939C6; color: white;">
+                                    <tr>
+                                      <th>SequenceID</th>
+                                      <th>Volume</th>
+                                      <th>At(hh:mm)</th>
+                                      <th>Day of week</th>
+                                      <th>Keep(snapshots)</th>
+                                      <th>Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody  style="font-size: 90%; color:#2939C6;" >
+
+                                    </tbody>
+                                    <tfoot >
+
+                                    </tfoot>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <div class="col-md-12">
+                                <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                                  <h4 class="cardshead">Snapshots Created Weekly</h4>
+                                  <table id="Weeklytable" class="table table-sm table-hover example1  table-striped">
+                                    <thead  style="background-color:#2939C6; color: white;">
+                                    <tr>
+                                      <th style="width:14%;">date</th>
+                                      <th style="width:5%;">time</th>
+                                      <th style="width:15%;">name</th>
+                                      <th style="width:10%;">volume</th>
+                                      <th style="width:5%;">size(MB)</th>
+                                      <th style="width:5%;">compress%</th>
+                                      <th style="width:5%;"> Rollback</th>
+                                      <th style="width:5%;">Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="font-size: 90%; color:#2939C6;">
+
+                                    </tbody>
+                                    <tfoot>
+
+                                    </tfoot>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+          </div>
+        </form>
+
+              <!-- Period list -->
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title cardshead">All Snapshots list</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="allsnapstable" class="table table-sm table-hover example1  table-striped">
+                    <thead style="background-color:#2939C6; color: white;">
+                    <tr>
+                      <th style="width:14%;">date</th>
+                      <th style="width:5%;">time</th>
+                      <th style="width:15%;">name</th>
+                      <th style="width:15%;">period</th>
+                      <th style="width:10%;">volume</th>
+                      <th style="width:5%;">size(MB)</th>
+                      <th style="width:5%;">compress%</th>
+                      <th style="width:5%;"> Rollback</th>
+                      <th style="width:5%;">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody style="font-size: 90%; color:#2939C6;">
+
+                    </tbody>
+                    <tfoot >
+
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+
+            </div>
+          </div>
+
+
+      </div> <!-- /.container-fluid -->
+
+    </div> <!-- /.content -->
+
+  <h1>REAL</h1>
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
@@ -812,84 +1176,7 @@
             </div>
           </div>
         </form>
-        <div class="row">
-            <div class="col-md-6">
-                  <div class="card">
-                    <div class="card-header">
-                      <h3 class="card-title"> Metadata+Snapshot on Volumes </h3>
-                    </div>
-                    <div class="card-body" style="padding:0.2rem;">
-                      <div class="chart">
-                        <canvas id="stackedBarChart" style="min-height: 160px; height: 160px; max-height: 100%; max-width: 100%;"></canvas>
-                      </div>
-                    </div>
-                  </div> <!-- /.card -->
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-body p-0">
-                  <table class="table table-sm">
-                    <thead>
-                      <tr>
-                        <th style="width: 10px">Time</th>
-                        <th>Volume Task</th>
-                        <th>Progress</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1.</td>
-                        <td>Update software</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>2.</td>
-                        <td>Clean database</td>
-                        <td>
-                          <div class="progress progress-xs">
-                            <div class="progress-bar bg-warning" style="width: 70%"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3.</td>
-                        <td>Cron job running</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-primary" style="width: 30%"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-success" style="width: 90%"></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                          <div class="progress progress-xs progress-striped active">
-                            <div class="progress-bar bg-success" style="width: 90%"></div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-              </div>
-            </div>
 
-        </div>
               <!-- Period list -->
           <div class="row">
             <div class="col-md-12">
@@ -1095,6 +1382,39 @@
 <script src="dist/js/Qsender.js" ></script>
 <script src="plugins/chart.js/Chart.min.js"></script>
 <script src="dist/js/demo.js"></script>
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE -->
+<script src="dist/js/adminlte.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="plugins/select2/js/select2.full.min.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- OPTIONAL SCRIPTS -->
+<!-- date-range-picker -->
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="dist/js/Qjquery.inputmask.bundle.js"></script>
+
+<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="dist/js/demo.js"></script>
+
+<script src="dist/js/Qsnapshots.js" ></script>
 
 <script>
   updatetasks();
