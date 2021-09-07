@@ -3,3 +3,46 @@
 
     border: none;
 }
+.table-sm td, .table-sm th
+{
+
+}
+
+
+table.dataTable.table-sm .sorting:after, table.dataTable.table-sm .sorting_asc:after, table.dataTable.table-sm .sorting_desc:after {
+    top: 3px;
+}
+table.dataTable.table-sm .sorting:before, table.dataTable.table-sm .sorting_asc:before, table.dataTable.table-sm .sorting_desc:before {
+    top: 3px;
+    right: .85em;
+}
+#example > thead > tr > th
+{
+  /padding-right: 4.8px!important;
+}
+/*
+#example2 > thead > tr > th
+{
+  padding-right: 4.8px!important;
+}
+*/
+
+#SnapShots_Oncetable > thead > tr > th:nth-child(6):before, #SnapShots_Oncetable > thead > tr > th:nth-child(7):before
+{
+  content:none;
+}
+
+#SnapShots_Oncetable > thead > tr > th:nth-child(6):after, #SnapShots_Oncetable > thead > tr > th:nth-child(7):after
+{
+  content:none;
+}
+#CIFS_Oncetable.dataTable.table-sm .sorting:before, #CIFS_Oncetable.dataTable.table-sm .sorting_asc:before, #CIFS_Oncetable.dataTable.table-sm .sorting_desc:before
+{
+  top: 30px;
+}
+
+
+#CIFS_Oncetable.dataTable.table-sm .sorting:after, #CIFS_Oncetable.dataTable.table-sm .sorting_asc:after, #CIFS_Oncetable.dataTable.table-sm .sorting_desc:after
+{
+  top: 30px;
+}

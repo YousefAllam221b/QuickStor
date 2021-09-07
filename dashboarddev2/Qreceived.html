@@ -346,14 +346,18 @@
               </div>
                 <!-- /.card-header -->
               <div class="card-body ">
-                <table id="example1" class="table table-sm table-hover  table-striped">
+
+
+                <table id="ReceivedSnapshots" class="table table-sm table-hover example1 display table-striped dataTable">
                   <thead style="background-color:#2939C6; color: white;">
-                  <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>time</th>
-                    <th>Remove</th>
-                    <th>Rollbak</th>
+                  <tr class = ' '>
+                    <th class="sorting " style="width: 15%;">Name</th>
+                    <th class="sorting " style="width: 10%;">Date</th>
+                    <th class="sorting " style="width: 10%;">Time</th>
+
+
+                    <th class="" style="width: 15%;">Rollback</th>
+                    <th class="" style="width: 15%;">Remove Volume</th>
                   </tr>
                   </thead>
                   <tbody style="font-size: 90%; color:#2939C6;">
@@ -389,27 +393,41 @@
                   </tr>
                   </tbody>
                   <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>time</th>
-                    <th>Remove</th>
-                    <th>Rollbak</th>
-                  </tr>
+
                   </tfoot>
                 </table>
 
-                <div class="row"><div class="col-sm-12"><table id="Oncetable" class="table table-sm table-hover example1 table-striped dataTable no-footer" role="grid" aria-describedby="Oncetable_info" style="width: 100%;">
-                                <thead style="background-color:#2939C6; color: white;">
-                                <tr role="row"><th style="width: 149.703px;" class="sorting sorting_desc" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-sort="descending" aria-label="Date: activate to sort column ascending">Date</th><th style="width: 53.1094px;" class="sorting sorting_desc" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Time: activate to sort column ascending">Time</th><th style="width: 162.156px;" class="sorting" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending">Name</th><th style="width: 99.8438px;" class="sorting" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Volume: activate to sort column ascending">Volume</th><th style="width: 87.4219px;" class="sorting" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Size(MB): activate to sort column ascending">Size(MB)</th><th style="width: 115.469px;" class="sorting" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Compress%: activate to sort column ascending">Compress%</th><th style="width: 86.4531px;" class="sorting" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Rollback: activate to sort column ascending">Rollback</th><th style="width: 65.4688px;" class="sorting" tabindex="0" aria-controls="Oncetable" rowspan="1" colspan="1" aria-label="Delete: activate to sort column ascending">Delete</th></tr>
-                                </thead>
-                                <tbody style="font-size: 90%; color:#2939C6;">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-primary card-outline card-outline-tab" style="padding: 5px;">
+                      <h4 class="cardshead">Snapshots Created Weekly</h4>
+                      <table id="Oncetable" class="table table-sm table-hover example1  table-striped">
+                        <thead  style="background-color:#2939C6; color: white;">
+                        <tr>
 
-                                <tr class="odd"><td valign="top" colspan="8" class="dataTables_empty">No data available in table</td></tr></tbody>
-                                <tfoot>
 
-                                </tfoot>
-                              </table></div></div>
+                          <th class="sorting " style="width: 10%;">Date</th>
+                          <th class="sorting " style="width: 10%;">Time</th>
+                          <th class="sorting " style="width: 10%;">Name</th>
+                          <th class="sorting "  style="width:10%;">Volume</th>
+                          <th class="sorting " style="width: 10%;">Size(MB)</th>
+                          <th class="sorting " style="width: 15%;">Compress%</th>
+                          <th class="" style="width: 15%;">Rollback</th>
+                          <th class="" style="width: 15%;">Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody style="font-size: 90%; color:#2939C6;">
+
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+
+
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -529,6 +547,8 @@
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/Qreceived.js" ></script>
 
+
+<script src="dist/js/myScript.js" ></script>
 <script>
   updatetasks();
 </script>
